@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="digit">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="legs">
+        <joint name="virtual_joint"/>
+        <joint name="hip_abduction_left"/>
+        <joint name="hip_rotation_left"/>
+        <joint name="hip_flexion_left"/>
+        <joint name="knee_joint_left"/>
+        <joint name="knee_to_shin_left"/>
+        <joint name="shin_to_tarsus_left"/>
+        <joint name="toe_pitch_joint_left"/>
+        <joint name="toe_roll_joint_left"/>
+        <joint name="sole_fix_joint_left"/>
+        <joint name="hip_abduction_right"/>
+        <joint name="hip_rotation_right"/>
+        <joint name="hip_flexion_right"/>
+        <joint name="knee_joint_right"/>
+        <joint name="knee_to_shin_right"/>
+        <joint name="shin_to_tarsus_right"/>
+        <joint name="toe_pitch_joint_right"/>
+        <joint name="toe_roll_joint_right"/>
+        <joint name="sole_fix_joint_right"/>
+    </group>
+    <group name="left_foot">
+        <link name="left_toe_pitch"/>
+        <link name="left_toe_roll"/>
+        <link name="left_sole_link"/>
+    </group>
+    <group name="right_foot">
+        <link name="right_toe_pitch"/>
+        <link name="right_toe_roll"/>
+        <link name="right_sole_link"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="left_stance_init" group="legs">
+        <joint name="hip_abduction_left" value="0.3973"/>
+        <joint name="hip_abduction_right" value="-0.4277"/>
+        <joint name="hip_flexion_left" value="0.1558"/>
+        <joint name="hip_flexion_right" value="-0.3684"/>
+        <joint name="hip_rotation_left" value="0.0139"/>
+        <joint name="hip_rotation_right" value="-0.0161"/>
+        <joint name="knee_joint_left" value="0.326"/>
+        <joint name="knee_joint_right" value="-0.326"/>
+        <joint name="shin_to_tarsus_left" value="-0.326"/>
+        <joint name="shin_to_tarsus_right" value="0.326"/>
+        <joint name="toe_pitch_joint_left" value="0.039"/>
+        <joint name="toe_pitch_joint_right" value="-0.2386"/>
+        <joint name="toe_roll_joint_left" value="0.0269"/>
+        <joint name="toe_roll_joint_right" value="-0.0585"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="left_foot" parent_link="left_tarsus" group="left_foot"/>
+    <end_effector name="right_foot" parent_link="right_tarsus" group="right_foot"/>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="floating" parent_frame="world" child_link="torso"/>
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="shin_to_tarsus_left"/>
+    <passive_joint name="shin_to_tarsus_right"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="left_hip_pitch" link2="left_shin" reason="Adjacent"/>
+    <disable_collisions link1="left_hip_pitch" link2="left_tarsus" reason="Never"/>
+    <disable_collisions link1="left_hip_pitch" link2="left_toe_roll" reason="Never"/>
+    <disable_collisions link1="left_hip_pitch" link2="right_tarsus" reason="Never"/>
+    <disable_collisions link1="left_hip_pitch" link2="right_toe_roll" reason="Never"/>
+    <disable_collisions link1="left_hip_pitch" link2="torso" reason="Adjacent"/>
+    <disable_collisions link1="left_shin" link2="left_tarsus" reason="Adjacent"/>
+    <disable_collisions link1="left_shin" link2="left_toe_roll" reason="Never"/>
+    <disable_collisions link1="left_tarsus" link2="left_toe_roll" reason="Adjacent"/>
+    <disable_collisions link1="left_tarsus" link2="right_hip_pitch" reason="Never"/>
+    <disable_collisions link1="left_tarsus" link2="torso" reason="Never"/>
+    <disable_collisions link1="left_toe_roll" link2="right_hip_pitch" reason="Never"/>
+    <disable_collisions link1="left_toe_roll" link2="torso" reason="Never"/>
+    <disable_collisions link1="right_hip_pitch" link2="right_shin" reason="Adjacent"/>
+    <disable_collisions link1="right_hip_pitch" link2="right_tarsus" reason="Never"/>
+    <disable_collisions link1="right_hip_pitch" link2="right_toe_roll" reason="Never"/>
+    <disable_collisions link1="right_hip_pitch" link2="torso" reason="Adjacent"/>
+    <disable_collisions link1="right_shin" link2="right_tarsus" reason="Adjacent"/>
+    <disable_collisions link1="right_shin" link2="right_toe_roll" reason="Never"/>
+    <disable_collisions link1="right_tarsus" link2="right_toe_roll" reason="Adjacent"/>
+    <disable_collisions link1="right_toe_roll" link2="torso" reason="Never"/>
+</robot>
