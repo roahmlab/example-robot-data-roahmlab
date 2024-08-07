@@ -262,6 +262,12 @@ class CassieLoader(RobotLoader):
     ]
 
 
+class DigitLoader(RobotLoader):
+    path = "digit_description"
+    urdf_filename = "digit-v3-armfixedspecific-springfixed.urdf"
+    free_flyer = True
+    
+
 class TalosLoader(RobotLoader):
     path = "talos_data"
     urdf_filename = "talos_reduced.urdf"
@@ -570,6 +576,7 @@ ROBOTS = {
     "asr_twodof": AsrTwoDofLoader,
     "baxter": BaxterLoader,
     "cassie": CassieLoader,
+    "digit": DigitLoader,
     "double_pendulum": DoublePendulumLoader,
     "double_pendulum_continuous": DoublePendulumContinuousLoader,
     "double_pendulum_simple": DoublePendulumSimpleLoader,

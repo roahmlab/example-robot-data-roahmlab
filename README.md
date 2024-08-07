@@ -1,4 +1,4 @@
-# Example robot URDFs
+# Example robot URDFs (RoahmLab fork)
 
 [![pipeline status](https://gitlab.laas.fr/gepetto/example-robot-data/badges/master/pipeline.svg)](https://gitlab.laas.fr/gepetto/example-robot-data/-/commits/master)
 [![conde version](https://img.shields.io/conda/vn/conda-forge/example-robot-data.svg)](https://anaconda.org/conda-forge/example-robot-data)
@@ -10,6 +10,20 @@
 
 This repository includes a set of robot descriptions that are aimed to be used in benchmarking, unit-tests, teachings,
 tutorials or show-cases. These source files do not intend to substitute their original repositories.
+
+## RoahmLab Modification
+
+We add a Digit-v3 from Agility Robotics to this repository. In order to load the robot, we have to modify `python/example_robot_data/robots_loader.py`, where we add a new class `DigitLoader` and a new index `"digit": DigitLoader` in the dictionary `ROBOTS`.
+
+If you already installed the original `example-robot-data` repository through conda (by following the procedures in the next section), we suggest you manually apply the changes according to the following procedure:
+1. The urdf and the meshes should be stored in `~/miniconda3/share/example-robot-data/robots`. Copy the folder `robots/digit_description` in this repository to location `~/miniconda3/share/example-robot-data/robots`, together with other robot descriptions.
+2. The python robot loader should be stored in `~/miniconda3/lib/python3.12/site-packages/example_robot_data/robots_loader.py`. Add the changes in `python/example_robot_data/robots_loader.py` of this repository to `~/miniconda3/lib/python3.12/site-packages/example_robot_data/robots_loader.py` (new class `DigitLoader` and new index `"digit": DigitLoader` in the dictionary `ROBOTS`).
+
+Then you should be able to import Digit in python really easily:
+```
+import example_robot_data as erd
+robot = erd.load('digit')
+```
 
 ## :penguin: Installation
 
