@@ -264,7 +264,7 @@ class CassieLoader(RobotLoader):
 
 class DigitLoader(RobotLoader):
     path = "digit_description"
-    urdf_filename = "digit-v3-armfixedspecific-springfixed.urdf"
+    urdf_filename = "digit-v3-springfixed.urdf"
     free_flyer = True
     
 
