@@ -1010,7 +1010,7 @@
   </link>
 
   <!-- left leg -->
-  <joint name="left_hip_roll" type="revolute">
+  <joint name="left_hip_roll_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 -1.1955515003397312323585310878116 -1.5707963267948966192313216916398" xyz="-0.001 0.091 0"/> 
     <axis xyz="0 0 1"/>
     <parent link="torso"/>
@@ -1018,7 +1018,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="113" lower="-1.0472" upper="1.0472" velocity="12.15"/>
   </joint>
-  <joint name="left_hip_yaw" type="revolute">
+  <joint name="left_hip_yaw_joint" type="revolute">
     <origin rpy="0   -1.5707963267948966192313216916398         0" xyz="-0.0505 0 0.044"/>
     <axis xyz="0 0 1"/>
     <parent link="left_hip_roll"/>
@@ -1026,7 +1026,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="79.1765" lower="-0.698132" upper="0.698132" velocity="12.15"/>
   </joint>
-  <joint name="left_hip_pitch" type="revolute">
+  <joint name="left_hip_pitch_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 -0.78539816339739465522740147207514 3.1415926535897932384626433832795" xyz="0 0.004 0.068"/>
     <axis xyz="0 0 -1"/>
     <parent link="left_hip_yaw"/>
@@ -1036,7 +1036,7 @@
   </joint>
 
   <!-- left knee close loop -->
-  <joint name="left_achilles_rod" type="revolute">
+  <joint name="left_achilles_rod_joint" type="revolute">
     <origin rpy="0.0087528908613780896652567520277444 0.07085157762907765000015558598534 -1.4355410054288866295024718056084" xyz="0 0 0.046"/>
     <axis xyz="0 0 1"/>
     <parent link="left_hip_pitch"/>
@@ -1044,7 +1044,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="8.5085"/>
   </joint>
-  <joint name="left_ach2" type="revolute">
+  <joint name="left_ach2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="left_achilles_rod"/>
@@ -1053,7 +1053,7 @@
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
 
-  <joint name="left_knee" type="revolute">
+  <joint name="left_knee_joint" type="revolute">
     <origin rpy="0         0   -1.5707963267948966192313216916398" xyz="0.12 0 0.0045"/>
     <axis xyz="0 0 1"/>
     <parent link="left_hip_pitch"/>
@@ -1061,7 +1061,7 @@
     <dynamics damping="1.0" friction="0.5"/>
     <limit effort="231.317" lower="-1.3963" upper="1.0193" velocity="8.5085"/>
   </joint>
-  <joint name="left_shin" type="fixed">
+  <joint name="left_shin_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.060677 0.047406 0"/>
     <axis xyz="0 0 1"/>
     <parent link="left_knee"/>
@@ -1069,7 +1069,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-0.35" upper="0.35" velocity="10"/>
   </joint>
-  <joint name="left_tarsus" type="revolute">
+  <joint name="left_tarsus_joint" type="revolute">
     <origin rpy="0         0    1.7976883650999471164766418951331" xyz="0.434759 0.02 0"/>
     <axis xyz="0 0 1"/>
     <parent link="left_shin"/>
@@ -1077,7 +1077,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-0.8779" upper="1.2497" velocity="20"/>
   </joint>
-  <joint name="left_heel_spring" type="fixed">
+  <joint name="left_heel_spring_joint" type="fixed">
     <origin rpy="-0.068907263191147760661436905138544 -0.03703539652360886280657581437481 2.7207176029176958209632175567094" xyz="-0.01766 -0.029456 0.00104"/>
     <axis xyz="0 0 1"/>
     <parent link="left_tarsus"/>
@@ -1087,7 +1087,7 @@
   </joint>
 
   <!-- left toe close loop -->
-  <joint name="left_toe_A" type="revolute">
+  <joint name="left_toe_A_joint" type="revolute">
     <origin rpy="3.1415926535897932384626433832795 0 -1.5526449025733231046331184188602" xyz="0.059 -0.034 -0.0276"/>
     <axis xyz="0 0 1"/>
     <parent link="left_tarsus"/>
@@ -1095,7 +1095,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="41.9759" lower="-0.8077" upper="0.7851" velocity="11.5"/>
   </joint>
-  <joint name="left_toe_A_rod" type="revolute">
+  <joint name="left_toe_A_rod_joint" type="revolute">
     <origin rpy="-0.037175987474526640819139089444434 0.0069420091856212517295032782271846 -1.5437619437662688515189302052022" xyz="0.057 0 -0.008"/>
     <axis xyz="0 0 1"/>
     <parent link="left_toe_A"/>
@@ -1103,7 +1103,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="left_A2" type="revolute">
+  <joint name="left_A2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="left_toe_A_rod"/>
@@ -1111,7 +1111,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="left_toe_B" type="revolute">
+  <joint name="left_toe_B_joint" type="revolute">
     <origin rpy="0         0   -1.5526446425200970402613620535703" xyz="0.111 -0.034 0.0276"/>
     <axis xyz="0 0 1"/>
     <parent link="left_tarsus"/>
@@ -1119,7 +1119,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="41.9759" lower="-0.8010" upper="0.7950" velocity="11.5"/>
   </joint>
-  <joint name="left_toe_B_rod" type="revolute">
+  <joint name="left_toe_B_rod_joint" type="revolute">
     <origin rpy="-0.053844685552438438513878082858355 0.0022826832958013874852465363574083 1.5418663490001245364169335516635" xyz="0.057 0 -0.008"/>
     <axis xyz="0 0 1"/>
     <parent link="left_toe_B"/>
@@ -1127,7 +1127,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="left_B2" type="revolute">
+  <joint name="left_B2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="left_toe_B_rod"/>
@@ -1136,7 +1136,7 @@
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
 
-  <joint name="left_toe_pitch" type="revolute">
+  <joint name="left_toe_pitch_joint" type="revolute">
     <origin rpy="0         0    1.2522744638393012994725950193242" xyz="0.408 -0.04 0"/>
     <axis xyz="0 0 1"/>
     <parent link="left_tarsus"/>
@@ -1144,7 +1144,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-0.7679" upper="0.5934" velocity="11.5"/>
   </joint>
-  <joint name="left_toe_roll" type="revolute">
+  <joint name="left_toe_roll_joint" type="revolute">
     <origin rpy="0    1.5707963267948966192313216916398         0" xyz="0 0 0"/>
     <axis xyz="0 0 1"/>
     <parent link="left_toe_pitch"/>
@@ -1154,7 +1154,7 @@
   </joint>
 
   <!-- left arm -->
-  <joint name="left_shoulder_roll" type="revolute">
+  <joint name="left_shoulder_roll_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 -1.396263402 1.5707963267948966192313216916398" xyz="-0.001 0.12 0.4"/>
     <axis xyz="0 0 1"/>
     <parent link="torso"/>
@@ -1162,7 +1162,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="113.000" lower="-1.309" upper="1.309" velocity="12.5"/>
   </joint>
-  <joint name="left_shoulder_pitch" type="revolute">
+  <joint name="left_shoulder_pitch_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 0.7853981634 -0.2792526803" xyz="-0.00317 -0.011055 0.0555"/>
     <axis xyz="0 0 -1"/>
     <parent link="left_shoulder_roll"/>
@@ -1170,7 +1170,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="113.000" lower="-2.5307" upper="2.5307" velocity="12.5"/>
   </joint>
-  <joint name="left_shoulder_yaw" type="revolute">
+  <joint name="left_shoulder_yaw_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 0 0" xyz="0 -0.165 -0.1"/>
     <axis xyz="0 0 1"/>
     <parent link="left_shoulder_pitch"/>
@@ -1178,7 +1178,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="79.1765" lower="-1.7453" upper="1.7453" velocity="10"/>
   </joint>
-  <joint name="left_elbow" type="revolute">
+  <joint name="left_elbow_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 -0.3926990817 0" xyz="0 -0.0385 0.185"/>
     <axis xyz="0 0 1"/>
     <parent link="left_shoulder_yaw"/>
@@ -1188,7 +1188,7 @@
   </joint>
 
   <!-- right leg -->
-  <joint name="right_hip_roll" type="revolute">
+  <joint name="right_hip_roll_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 -1.1955515003397312323585310878116 1.5707963267948966192313216916398" xyz="-0.001 -0.091 0"/>
     <axis xyz="0 0 1"/>
     <parent link="torso"/>
@@ -1196,7 +1196,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="113.000" lower="-1.0472" upper="1.0472" velocity="12.15"/>
   </joint>
-  <joint name="right_hip_yaw" type="revolute">
+  <joint name="right_hip_yaw_joint" type="revolute">
     <origin rpy="0   -1.5707963267948966192313216916398         0" xyz="-0.0505 0 0.044"/>
     <axis xyz="0 0 1"/>
     <parent link="right_hip_roll"/>
@@ -1204,7 +1204,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="79.1765" lower="-0.698132" upper="0.698132" velocity="12.15"/>
   </joint>
-  <joint name="right_hip_pitch" type="revolute">
+  <joint name="right_hip_pitch_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 -0.78539855435120076165844693605322 3.1415926535897932384626433832795" xyz="0 -0.004 0.068"/>
     <axis xyz="0 0 -1"/>
     <parent link="right_hip_yaw"/>
@@ -1214,7 +1214,7 @@
   </joint>
 
   <!-- right knee close loop -->
-  <joint name="right_achilles_rod" type="revolute">
+  <joint name="right_achilles_rod_joint" type="revolute">
     <origin rpy="-0.0087523017375784415566863927438135 0.070851391807226243857442682383407 1.4355417226017064269427692124736" xyz="0 0 0.046"/>
     <axis xyz="0 0 1"/>
     <parent link="right_hip_pitch"/>
@@ -1222,7 +1222,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="8.5085"/>
   </joint>
-  <joint name="right_ach2" type="revolute">
+  <joint name="right_ach2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="right_achilles_rod"/>
@@ -1231,7 +1231,7 @@
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
 
-  <joint name="right_knee" type="revolute">
+  <joint name="right_knee_joint" type="revolute">
     <origin rpy="0         0    1.5707963267948966192313216916398" xyz="0.12 0 0.0045"/>
     <axis xyz="0 0 1"/>
     <parent link="right_hip_pitch"/>
@@ -1239,7 +1239,7 @@
     <dynamics damping="1.0" friction="0.5"/>
     <limit effort="231.317" lower="-1.0193" upper="1.3963" velocity="8.5085"/>
   </joint>
-  <joint name="right_shin" type="fixed">
+  <joint name="right_shin_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.060677 -0.047406 0"/>
     <axis xyz="0 0 1"/>
     <parent link="right_knee"/>
@@ -1247,7 +1247,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-0.35" upper="0.35" velocity="10"/>
   </joint>
-  <joint name="right_tarsus" type="revolute">
+  <joint name="right_tarsus_joint" type="revolute">
     <origin rpy="0         0   -1.7976883650999471164766418951331" xyz="0.434759 -0.02 0"/>
     <axis xyz="0 0 1"/>
     <parent link="right_shin"/>
@@ -1255,7 +1255,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-1.2497" upper="0.8779" velocity="20"/>
   </joint>
-  <joint name="right_heel_spring" type="fixed">
+  <joint name="right_heel_spring_joint" type="fixed">
     <origin rpy="0.068907849662554282454962617521232 -0.037035299439698535217679875586327 -2.7207170387858861104746210912708" xyz="-0.01766 0.029456 0.00104"/>
     <axis xyz="0 0 1"/>
     <parent link="right_tarsus"/>
@@ -1265,7 +1265,7 @@
   </joint> 
 
   <!-- right toe close loop -->
-  <joint name="right_toe_A" type="revolute">
+  <joint name="right_toe_A_joint" type="revolute">
     <origin rpy="3.1415926535897932384626433832795 0 1.5526446425200970402613620535703" xyz="0.059 0.034 -0.0276"/>
     <axis xyz="0 0 1"/>
     <parent link="right_tarsus"/>
@@ -1273,7 +1273,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="41.9759" lower="-0.7851" upper="0.8077" velocity="11.5"/>
   </joint>
-  <joint name="right_toe_A_rod" type="revolute">
+  <joint name="right_toe_A_rod_joint" type="revolute">
     <origin rpy="0.03717647899635967423392912678537 0.0069418384185932916277672610760874 1.5437611240201540852012840332463" xyz="0.057 0 -0.008"/>
     <axis xyz="0 0 1"/>
     <parent link="right_toe_A"/>
@@ -1281,7 +1281,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="right_A2" type="revolute">
+  <joint name="right_A2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="right_toe_A_rod"/>
@@ -1289,7 +1289,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="right_toe_B" type="revolute">
+  <joint name="right_toe_B_joint" type="revolute">
     <origin rpy="0         0    1.5526446425200970402613620535703" xyz="0.111 0.034 0.0276"/>
     <axis xyz="0 0 1"/>
     <parent link="right_tarsus"/>
@@ -1297,7 +1297,7 @@
     <dynamics damping="1.0" friction="1.0"/>
     <limit effort="41.9759" lower="-0.7950" upper="0.8010" velocity="11.5"/>
   </joint>
-  <joint name="right_toe_B_rod" type="revolute">
+  <joint name="right_toe_B_rod_joint" type="revolute">
     <origin rpy="0.053844685552438438513878082858355 0.0022826832958013874852465363574083 -1.5418663490001245364169335516635" xyz="0.057 0 -0.008"/>
     <axis xyz="0 0 1"/>
     <parent link="right_toe_B"/>
@@ -1305,7 +1305,7 @@
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
-  <joint name="right_B2" type="revolute">
+  <joint name="right_B2_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <parent link="right_toe_B_rod"/>
@@ -1314,7 +1314,7 @@
     <limit effort="0" lower="-1.7453" upper="1.7453" velocity="11.5"/>
   </joint>
 
-  <joint name="right_toe_pitch" type="revolute">
+  <joint name="right_toe_pitch_joint" type="revolute">
     <origin rpy="0         0   -1.2522744638393012994725950193242" xyz="0.408 0.04 0"/>
     <axis xyz="0 0 1"/>
     <parent link="right_tarsus"/>
@@ -1322,7 +1322,7 @@
     <dynamics damping="0.0" friction="0.0"/>
     <limit effort="0" lower="-0.5934" upper="0.7679" velocity="11.5"/>
   </joint>
-  <joint name="right_toe_roll" type="revolute">
+  <joint name="right_toe_roll_joint" type="revolute">
     <origin rpy="0    1.5707963267948966192313216916398         0" xyz="0 0 0"/>
     <axis xyz="0 0 1"/>
     <parent link="right_toe_pitch"/>
@@ -1332,7 +1332,7 @@
   </joint>
 
   <!-- right arm -->
-  <joint name="right_shoulder_roll" type="revolute">
+  <joint name="right_shoulder_roll_joint" type="revolute">
     <origin rpy="1.5707963267948966192313216916398 -1.396263402 -1.5707963267948966192313216916398" xyz="-0.001 -0.12 0.4"/>
     <axis xyz="0 0 1"/>
     <parent link="torso"/>
@@ -1340,7 +1340,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="113.000" lower="-1.309" upper="1.309" velocity="12.5"/>
   </joint>
-  <joint name="right_shoulder_pitch" type="revolute">
+  <joint name="right_shoulder_pitch_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 0.7853981634 0.2792526803" xyz="-0.00317 0.011055 0.0555"/>
     <axis xyz="0 0 -1"/>
     <parent link="right_shoulder_roll"/>
@@ -1348,7 +1348,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="113.000" lower="-2.5307" upper="2.5307" velocity="12.5"/>
   </joint>
-  <joint name="right_shoulder_yaw" type="revolute">
+  <joint name="right_shoulder_yaw_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 0 0" xyz="0 0.165 -0.1"/>
     <axis xyz="0 0 1"/>
     <parent link="right_shoulder_pitch"/>
@@ -1356,7 +1356,7 @@
     <dynamics damping="2.0" friction="2.0"/>
     <limit effort="79.1765" lower="-1.7453" upper="1.7453" velocity="10"/>
   </joint>
-  <joint name="right_elbow" type="revolute">
+  <joint name="right_elbow_joint" type="revolute">
     <origin rpy="-1.5707963267948966192313216916398 -0.3926990817 0" xyz="0 0.0385 0.185"/>
     <axis xyz="0 0 1"/>
     <parent link="right_shoulder_yaw"/>
@@ -1368,7 +1368,7 @@
   <!-- Transmissions -->
   <transmission name="left_hip_roll_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_hip-roll">
+    <joint name="left_hip-roll_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_hip_roll_motor">
@@ -1379,7 +1379,7 @@
 
   <transmission name="left_hip_yaw_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_hip_yaw">
+    <joint name="left_hip_yaw_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_hip_yaw_motor">
@@ -1390,7 +1390,7 @@
 
   <transmission name="left_hip_pitch_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_hip_pitch">
+    <joint name="left_hip_pitch_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_hip_pitch_motor">
@@ -1401,7 +1401,7 @@
 
   <transmission name="left_knee_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_knee">
+    <joint name="left_knee_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_knee_motor">
@@ -1412,7 +1412,7 @@
 
   <transmission name="left_toe_A_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_toe_A">
+    <joint name="left_toe_A_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_toe_A_motor">
@@ -1423,7 +1423,7 @@
 
   <transmission name="left_toe_B_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_toe_B">
+    <joint name="left_toe_B_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_toe_B_motor">
@@ -1434,10 +1434,10 @@
 
   <transmission name="left_shoulder_roll_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_shoulder-roll">
+    <joint name="left_shoulder_roll_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="left_shoulder-roll_motor">
+    <actuator name="left_shoulder_roll_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1445,10 +1445,10 @@
 
   <transmission name="left_shoulder_pitch_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_shoulder-pitch">
+    <joint name="left_shoulder_pitch_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="left_shoulder-pitch_motor">
+    <actuator name="left_shoulder_pitch_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1456,10 +1456,10 @@
 
   <transmission name="left_shoulder_yaw_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_shoulder-yaw">
+    <joint name="left_shoulder_yaw_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="left_shoulder-yaw_motor">
+    <actuator name="left_shoulder_yaw_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1467,7 +1467,7 @@
 
   <transmission name="left_elbow_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_elbow">
+    <joint name="left_elbow_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="left_elbow_motor">
@@ -1478,7 +1478,7 @@
 
   <transmission name="right_hip_roll_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_hip_roll">
+    <joint name="right_hip_roll_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_hip_roll_motor">
@@ -1489,7 +1489,7 @@
 
   <transmission name="right_hip_yaw_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_hip_yaw">
+    <joint name="right_hip_yaw_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_hip_yaw_motor">
@@ -1500,7 +1500,7 @@
 
   <transmission name="right_hip_pitch_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_hip_pitch">
+    <joint name="right_hip_pitch_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_hip_pitch_motor">
@@ -1511,7 +1511,7 @@
 
   <transmission name="right_knee_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_knee">
+    <joint name="right_knee_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_knee_motor">
@@ -1522,7 +1522,7 @@
 
   <transmission name="right_toe_A_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_toe_A">
+    <joint name="right_toe_A_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_toe_A_motor">
@@ -1533,7 +1533,7 @@
 
   <transmission name="right_toe_B_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_toe_B">
+    <joint name="right_toe_B_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_toe_B_motor">
@@ -1544,10 +1544,10 @@
 
   <transmission name="right_shoulder_roll_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_shoulder-roll">
+    <joint name="right_shoulder_roll_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="right_shoulder-roll_motor">
+    <actuator name="right_shoulder_roll_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1555,10 +1555,10 @@
 
   <transmission name="right_shoulder_pitch_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_shoulder-pitch">
+    <joint name="right_shoulder_pitch_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="right_shoulder-pitch_motor">
+    <actuator name="right_shoulder_pitch_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1566,10 +1566,10 @@
 
   <transmission name="right_shoulder_yaw_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_shoulder-yaw">
+    <joint name="right_shoulder_yaw_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="right_shoulder-yaw_motor">
+    <actuator name="right_shoulder_yaw_motor">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -1577,7 +1577,7 @@
 
   <transmission name="right_elbow_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_elbow">
+    <joint name="right_elbow_joint">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="right_elbow_motor">
